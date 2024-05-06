@@ -1,4 +1,4 @@
-#!/bin/bash
+#/bin/bash
  
 # Realiza a solicitação HTTP e armazena a resposta em RESULT
 RESULT=$(wget -qO- http://localhost:8090)
