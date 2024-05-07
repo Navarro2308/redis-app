@@ -19,7 +19,6 @@ pipeline {
         stage('teste da aplicação'){
             steps{
                 sh 'chmod +x teste-app.sh'
-                dos2unix ./teste-app.sh
                 sh './teste-app.sh'
                 
             }
