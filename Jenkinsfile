@@ -20,7 +20,6 @@ pipeline {
             steps{
                 sh 'chmod +x teste-app.sh'
                 sh './teste-app.sh'
-                
             }
         }
 
