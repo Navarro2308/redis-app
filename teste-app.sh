@@ -7,7 +7,7 @@ then
 elif [[$RESULT == *"Number"* ]] 
 then
     echo 'ok - número de visitas'
-    echo "$RESULT"
+    echo $RESULT
 else
     echo 'not ok - número de visitas'
     exit 1
