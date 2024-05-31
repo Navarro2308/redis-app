@@ -15,13 +15,14 @@ pipeline {
             steps{
                 sh 'sleep 10'
             }
+        }
         stage('sonarqube validation'){
             steps{
                 script{
-                    scanerHome = tool 'sonarscanner';
+                    scanerHome = tool 'sonar-scanner';
                 }
                 withSonarQubeEnv('sonar-server'){
-                    sh "${scanner-Home}/bin/sonar-scanner -Dsonar.projectKey=redis-app -Dsonar.soucers=. Dsonar.host.url=${env.SONAR_HOST-URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
+                    sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=redis-app -Dsonar.soucers=. Dsonar.host.url=${env.SONAR_HOST_URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
                 }
             }           
         }
