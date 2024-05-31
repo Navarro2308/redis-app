@@ -14,7 +14,16 @@ pipeline {
         stage('sleep para subida de containers'){
             steps{
                 sh 'sleep 10'
-            }    
+            }
+        stage('sonarqube validation'){
+            steps{
+                script{
+                    scanerHome = tool 'sonarscanner';
+                }
+                withSonarQubeEnv('sonar-server'){
+                    sh "${scanner-Home}/bin/sonar-scanner -Dsonar.projectKey=redis-app -Dsonar.soucers=. Dsonar.host.url=${env.SONAR_HOST-URL} -Dsonar.login=${env.SONAR_AUTH_TOKEN}"
+                }
+            }           
         }
         stage('teste da aplicação'){
             steps{
